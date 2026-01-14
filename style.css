@@ -214,7 +214,8 @@ img {
 .hero-section {
     position: relative;
     padding: 180px 0 150px;
-    background: url('images/iMoment-Jednorazowki-herocontent.jpg') no-repeat center center/cover;
+    /* Added ../ to the start of the path */
+    background: url('../images/iMoment-Jednorazowki-herocontent.jpg') no-repeat center center/cover;
     text-align: center;
     overflow: hidden;
     animation: slideInUp 1s ease-out;
