@@ -210,42 +210,75 @@ img {
     font-size: 24px;
 }
 
-/* Hero Section */
 .hero-section {
     position: relative;
     padding: 180px 0 150px;
-    /* Added ../ to the start of the path */
-    background: url('../images/iMoment-Jednorazowki-herocontent.jpg') no-repeat center center/cover;
     text-align: center;
     overflow: hidden;
-    animation: slideInUp 1s ease-out;
+    /* We removed the background: url() here since it's now an <img> tag */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Creating a placeholder for hero bg since it's dark in the design */
-.hero-section::before {
-    content: '';
+/* This makes the image behave like a background */
+.hero-bg-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(11, 14, 19, 1) 0%, rgba(11, 14, 19, 0.7) 100%);
-    z-index: 1;
+    object-fit: cover; /* Keeps image from stretching */
+    z-index: 1;        /* Bottom layer */
 }
 
-.hero-content {
-    position: relative;
+/* Darkens the image so text is readable */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Adjust 0.4 for more or less darkness */
     z-index: 2;
 }
 
+/* Ensures the text container stays on top */
+.hero-section .container {
+    position: relative;
+    z-index: 3;
+}
+
 .hero-content h1 {
-    font-family: var(--font-body);
-    /* Using Inter for a cleaner heavy look */
-    font-size: 56px;
-    font-weight: 900;
-    letter-spacing: 1px;
+    color: #ffffff;
+    font-size: 3rem;
     margin-bottom: 20px;
-    color: var(--text-white);
+    text-transform: uppercase;
+}
+
+/* Ensures the curve graphic stays on the very top */
+.hero-bottom-curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+}
+
+/* Style for your button */
+.hero-content-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff4d4d; /* Example red color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.hero-content-button:hover {
+    transform: scale(1.05);
 }
 
 .breadcrumb {
